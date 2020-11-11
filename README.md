@@ -5,14 +5,20 @@ This Project is deployed and can be accessed at https://arnavr.pythonanywhere.co
 
 # How to run Locally
 Install all requirements needed like Flask in python3
+
 Open api.py in any text editor.
+
 Search line tokn="xxxxxxxxxxxxxxxxxxxxxxx"
+
 Replace tokn value(represented as xxxxx...) with your own github access token
+
 Save the File. Now run Command python api.py
+
 Go to web Browser and open http://localhost:5000 in browser.
 
 # Note
 Github API limit number of API calls per minutes.
+
 Hence, for Larger input like N=100, it will take time to fetch all results and display in browser.(Thus have patience)
 
 
