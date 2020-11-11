@@ -6,8 +6,11 @@ import json
 import requests
 from flask import render_template 
 
+# Github API can return maximum 100 results in one API call.
+# Thus we need to call API for each page of result.
 
 def getContributors(m,base_url):
+	#Function to Find Top M Contributors in a repository
 	contributor_list=[]
 	contrib_page=1
 	tot=0
@@ -33,6 +36,9 @@ def getContributors(m,base_url):
 
 @app.route('/getOrgDetails', methods=['POST', 'GET'])
 def getOrgDetails():
+	#Get All Repository List of organization
+	#Sort Repository According to Stars
+	#Get Top N repositories
 	try:
 		organization_name = request.form['orgzn']
 		n = int(request.form['repo_count'])
@@ -59,9 +65,11 @@ def getOrgDetails():
 		repo_list.sort(key=lambda x: x[1], reverse=True)
 		n=min(n,len(repo_list))
 		top_n_repo=repo_list[0:n]
+		# to_n_repo list contain Most Popular N repositories
 		finallist=[]
 		for repp in top_n_repo:
 			print(repp)
+			#Get Top Contributors in this repository
 			contributor_url="https://api.github.com/repos/"+organization_name+"/"+repp[0]+"/contributors?access_token="+str(tokn)+"&q=contributions&order=desc&page="
 			li=getContributors(m,contributor_url)
 			print(li)
@@ -71,6 +79,7 @@ def getOrgDetails():
 			json_object = json.dumps(d1, indent=4)
 			resultt = json.loads(json_object)
 			finallist.append(resultt)
+		#return result in json format to render on html template
 		return render_template("index.html", jsonList=finallist,organization_name=organization_name)
 	except:
 		return render_template("errormessage.html")
