@@ -14,25 +14,29 @@ def getContributors(m,base_url):
 	contributor_list=[]
 	contrib_page=1
 	tot=0
-	while(True):
-		contributor_url=base_url+str(contrib_page)+"&per_page=100"
-		print(contributor_url)
-		contributorss=requests.get(contributor_url).json()
-		siz=len(contributorss)
-		if siz==0:
-			break
-		# print(contributorss)
-		for usr in contributorss:
-			if tot>=m:
+	try:
+		while(True):
+			contributor_url=base_url+str(contrib_page)+"&per_page=100"
+			print(contributor_url)
+			contributorss=requests.get(contributor_url).json()
+			siz=len(contributorss)
+			if siz==0:
 				break
-			user=usr['login']
-			tot_cont=usr['contributions']
-			contributor_list.append([user, tot_cont])
-			tot+=1
-		if(tot>=m):
-			break
-		contrib_page+=1
-	return contributor_list
+			# print(contributorss)
+			for usr in contributorss:
+				if tot>=m:
+					break
+				user=usr['login']
+				tot_cont=usr['contributions']
+				contributor_list.append([user, tot_cont])
+				tot+=1
+			if(tot>=m):
+				break
+			contrib_page+=1
+		return contributor_list
+	except:
+		lis=[]
+		return lis
 
 @app.route('/getOrgDetails', methods=['POST', 'GET'])
 def getOrgDetails():
