@@ -8,11 +8,11 @@ This Project is deployed and can be accessed at https://arnavr.pythonanywhere.co
 # HomePage
 ![ScreenShot1](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(182).png)
 
-# Enter Input
+# Input Details In Form
 ![ScreenShot2](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(183).png)
 
-# Result Page (Repository and Contributors)
+Result Page (Repository and Contributors)
 ![ScreenShot3](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(184).png)
 
-# Result Page (Repository and Contributors)
+Result Page (Repository and Contributors)
 ![ScreenShot4](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(185).png)
