@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Top Github Repo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head> 
+  
+<body>
+    <div class="jumbotron">
+        <h1>Top Repositories for Organization: {{ organization_name}}</h1>      
+    </div>
+    <ul>
+        {% for jsonData in jsonList %}
+        <div class="jumbotron">
+          <h2>Repository Name: {{ jsonData.RepoName}}</h2>      
+        </div>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Top Contributors</a>
+                </div>
+            </div>
+        </nav>
+        <ul class="list-group">
+        {% for ingredient in jsonData.TopContributors %}
+            <li class="list-group-item">{{ ingredient[0] }}  <span class="badge">  {{ ingredient[1] }} </span> </li>
+        {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+</body>     
+</html>
