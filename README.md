@@ -12,7 +12,8 @@ This Project is deployed and can be accessed at https://arnavr.pythonanywhere.co
 ![ScreenShot2](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(183).png)
 
 # Output (Repository and Contributors)
-
+# 
+# 
 
 ![ScreenShot3](https://github.com/ArnavRupde/GithubStatistics/blob/main/Screenshot%20(184).png)
 
